@@ -170,7 +170,7 @@ def nouveau_risque():
         return redirect("/risques")
 
     return render_template("nouveau_risque.html")
-    
+
     # TEST_RENDER_ACTIONS_V2
 
 @app.route("/actions")
@@ -226,7 +226,7 @@ def nouvelle_action():
             responsable,
             date_cible,
             statut
-        )
+        ))
 
         connexion.commit()
         connexion.close()
