@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MVP_Gestion de risques HSE</title>
+   
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<hr>
+
+<p style="text-align:center; color:gray;">
+    © MVP_Gestion de risques HSE • Paul Patrice Biyick • 2018-2026
+</p>
+ 
+<body>
+
+<div class="header">
+
+    <div style="text-align:right;">
+        
+        <a href="/logout" class="btn">
+            <p style="color:white;">
+                👤 Connecté : {{ session['user'] }}
+            </p>
+                🔓 Déconnexion
+        </a>
+    </div>
+
+    <h1>🏢 MVP_Gestions de risques HSE</h1>
+    <p>Santé et Sécurité au Travail</p>
+
+</div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Inspections</h3>
+            <h2>{{ nb_inspections }}</h2>
+        </div>
+
+        <div class="card">
+    <h3>Risques</h3>
+    <h2>{{ nb_risques }}</h2>
+</div>
+
+        <div class="card">
+    <h3>Actions</h3>
+    <h2>{{ nb_actions }}</h2>
+</div>
+
+    </div>
+
+    <br>
+
+    <a href="/inspection" class="btn">
+        ➕ Nouvelle inspection
+    </a>
+
+    <br><br>
+
+    <a href="/liste" class="btn">
+        📋 Liste des inspections
+    </a>
+    <br><br>
+
+    <a href="/risques" class="btn">
+        ⚠️ Registre des risques
+    </a>
+
+    <br><br>
+
+    <a href="/actions" class="btn">
+        ✅ Mesures correctives
+    </a>

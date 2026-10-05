@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau risque</title>
+
+    {{ url_for('static', filename='style.css') }}
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>➕ Nouveau risque</h1>
+        <p>Ajout d'un risque SST</p>
+    </div>
+
+    <form method="POST">
+
+        <label>Risque :</label><br>
+        <input type="text" name="risque" required><br><br>
+
+        <label>Secteur :</label><br>
+        <input type="text" name="secteur" required><br><br>
+
+        <label>Probabilité :</label><br>
+        <select name="probabilite">
+            <option>Faible</option>
+            <option>Moyenne</option>
+            <option>Élevée</option>
+        </select><br><br>
+
+        <label>Gravité :</label><br>
+        <select name="gravite">
+            <option>Faible</option>
+            <option>Moyenne</option>
+            <option>Élevée</option>
+        </select><br><br>
+
+        <label>Mesures de contrôle :</label><br>
+        <textarea name="mesures_controle" rows="4"></textarea><br><br>
+
+        <button type="submit">Enregistrer le risque</button>
+
+    </form>
+
+    <br>
+
+    /risques
+        Retour au registre des risques
+    </a>
+
+ <br><br>
+<a href="{{ url_for('accueil') }}" class="btn">
+    🏠 Retour au tableau de bord
+</a>
+</body>
+</html>
+
+
+    

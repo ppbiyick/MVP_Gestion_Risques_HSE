@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Registre des risques</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>⚠️ Registre des risques</h1>
+        <p>Gestion des risques SST</p>
+    </div>
+    <a href="/nouveau_risque">
+        ➕ Nouveau risque
+    </a>
+
+<br><br>
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr>
+    <th>ID</th>
+    <th>Risque</th>
+    <th>Secteur</th>
+    <th>Probabilité</th>
+    <th>Gravité</th>
+    <th>Niveau</th>
+</tr>
+
+{% for risque in risques %}
+<tr>
+    <td>{{ risque[0] }}</td>
+    <td>{{ risque[1] }}</td>
+    <td>{{ risque[2] }}</td>
+    <td>{{ risque[3] }}</td>
+    <td>{{ risque[4] }}</td>
+    <td>{{ risque[5] }}</td>
+</tr>
+{% endfor %}
+
+    </table>
+
+    <br>
+  <br>
+
+<a href="{{ url_for('accueil') }}" class="btn">
+    🏠 Retour au tableau de bord
+</a>
+
+</body>
+</html>

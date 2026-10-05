@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<h1 style="color:#1f4e79;">
+    🔐 MVP_Gestion de risques HSE
+</h1>
+<p>Plateforme de gestion Santé, Sécurité et Environnement</p>
+
+    <form method="POST">
+
+        <label>Utilisateur :</label><br>
+        <input type="text"
+               name="username"
+               required><br><br>
+
+        <label>Mot de passe :</label><br>
+        <input type="password"
+               name="password"
+               required><br><br>
+
+        <button class="btn" type="submit">
+            Se connecter
+        </button>
+
+    </form>
+<br><br><br>
+
+<hr>
+
+<p style="
+    text-align:center;
+    color:gray;
+    font-size:11px;
+">
+    © Paul Patrice Biyick 2018-2026 • Tous droits réservés
+</p>
+
+</div>
+</body>
+</html>

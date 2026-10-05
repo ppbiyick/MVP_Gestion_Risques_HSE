@@ -1,0 +1,28 @@
+# Environnement virtuel Python
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Fichiers système Windows
+Thumbs.db
+Desktop.ini
+
+# Fichiers système macOS
+.DS_Store
+
+# Fichiers VS Code
+.vscode/
+
+# Journaux
+*.log
+
+# Variables d'environnement
+.env
+
+# Bases de données SQLite optionnelles
+*.sqlite3
+
+# Fichiers temporaires SQLite
+*.db-journal

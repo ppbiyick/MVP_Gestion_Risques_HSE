@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle inspection SST</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>📝 Nouvelle inspection SST</h1>
+        <p>Saisie d'une inspection</p>
+    </div>
+
+    <form method="POST" style="margin-top:20px;">
+
+        <p>
+            <label>Date :</label><br>
+            <input type="date" name="date">
+        </p>
+
+        <p>
+            <label>Inspecteur :</label><br>
+            <input type="text" name="inspecteur">
+        </p>
+
+        <p>
+            <label>Secteur :</label><br>
+            <input type="text" name="secteur">
+        </p>
+
+        <p>
+            <label>Niveau de risque :</label><br>
+            <select name="risque">
+                <option>Faible</option>
+                <option>Moyen</option>
+                <option>Élevé</option>
+                <option>Critique</option>
+            </select>
+        </p>
+
+        <p>
+            <label>Observation :</label><br>
+            <textarea rows="6" name="observation"></textarea>
+        </p>
+
+        <p>
+            <label>Mesures correctives :</label><br>
+            <textarea rows="4" name="mesures_correctives"></textarea>
+        </p>
+
+        <button class="btn" type="submit">
+            ✅ Enregistrer 
+
+ <br><br>
+<a href="{{ url_for('accueil') }}" class="btn">
+    🏠 Retour au tableau de bord
+</a>
+</body>
+</html>_

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord SST</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>🏢 Tableau de bord SST</h1>
+        <p>Santé et Sécurité au Travail</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Inspections</h3>
+            <h2>{{ nb_inspections }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Risques</h3>
+            <h2>0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Actions</h3>
+            <h2>0</h2>
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="/inspection" class="btn">
+        ➕ Nouvelle inspection
+    </a>
+
+    <br><br>
+
+    <a href="/liste" class="btn">
+        📋 Liste des inspections
+    </a>
+
+</body>
+</html>

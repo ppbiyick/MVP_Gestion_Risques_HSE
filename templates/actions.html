@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Actions correctives</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>✅ Actions correctives</h1>
+        <p>Suivi des actions SST</p>
+    </div>
+
+    <a href="/nouvelle_action">
+        ➕ Nouvelle action corrective
+    </a>
+
+    <br><br>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr>
+            <th>ID</th>
+            <th>Action</th>
+            <th>Responsable</th>
+            <th>Date cible</th>
+            <th>Statut</th>
+        </tr>
+
+        {% for action in actions %}
+        <tr>
+            <td>{{ action[0] }}</td>
+            <td>{{ action[1] }}</td>
+            <td>{{ action[2] }}</td>
+            <td>{{ action[3] }}</td>
+            <td>{{ action[4] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+ <br><br>
+<a href="{{ url_for('accueil') }}" class="btn">
+    🏠 Retour au tableau de bord
+</a>
+</body>
+</html>

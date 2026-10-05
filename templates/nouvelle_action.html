@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle action corrective</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>✅ Nouvelle mesure corrective</h1>
+        <p>Suivi des mesures SST</p>
+    </div>
+
+    <form method="POST">
+
+        <label>Mesure :</label><br>
+        <input type="text" name="mesure" required><br><br>
+
+        <label>Responsable :</label><br>
+        <input type="text" name="responsable" required><br><br>
+
+        <label>Date cible :</label><br>
+        <input type="date" name="date_cible" required><br><br>
+
+        <label>Statut :</label><br>
+        <select name="statut">
+            <option>À faire</option>
+            <option>En cours</option>
+            <option>Terminée</option>
+        </select><br><br>
+
+        <button type="submit">
+            Enregistrer l'action
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/actions">
+        ⬅ Retour aux mesures correctives
+    </a>
+
+ <br>
+<a href="{{ url_for('accueil') }}" class="btn">
+    🏠 Retour au tableau de bord
+</a>
+</body>
+</html>
+
+
