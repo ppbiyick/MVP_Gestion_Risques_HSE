@@ -170,6 +170,8 @@ def nouveau_risque():
         return redirect("/risques")
 
     return render_template("nouveau_risque.html")
+    
+    # TEST_RENDER_ACTIONS_V2
 
 @app.route("/actions")
 def actions():
@@ -179,11 +181,11 @@ def actions():
 
     curseur.execute("""
         SELECT
-            id,
-            mesures_correctives,
-            responsable,
-            date_cible,
-            statut
+        id,
+        action,
+        responsable,
+        date_cible,
+        statut
         FROM actions
         ORDER BY id DESC
     """)
@@ -201,7 +203,7 @@ def nouvelle_action():
 
     if request.method == "POST":
 
-        mesures_correctives = request.form["mesures_correctives"]
+        action = request.form["action"]
         responsable = request.form["responsable"]
         date_cible = request.form["date_cible"]
         statut = request.form["statut"]
@@ -212,7 +214,7 @@ def nouvelle_action():
         curseur.execute("""
             INSERT INTO actions
             (
-                mesures_correctives,
+                action,
                 responsable,
                 date_cible,
                 statut
@@ -220,11 +222,11 @@ def nouvelle_action():
             VALUES (?, ?, ?, ?)
         """,
         (
-            mesures_correctives,
+            action,
             responsable,
             date_cible,
             statut
-        ))
+        )
 
         connexion.commit()
         connexion.close()
