@@ -1,36 +1,17 @@
 from flask import Flask, render_template, request, redirect, session, send_from_directory
-import sqlite3
 
 app = Flask(__name__)
+
+print("FICHIER FLASK CHARGE")
+
 
 @app.route('/robots.txt')
 def robots():
     return send_from_directory('static', 'robots.txt')
 
-
 @app.route("/")
 def accueil():
     return render_template("home.html")
-
-def accueil():
-    return render_template("home.html")
-@app.route("/")
-def accueil():
-
-    connexion = sqlite3.connect("sst.db")
-    curseur = connexion.cursor()
-
-    curseur.execute("SELECT COUNT(*) FROM inspections")
-
-    nb_inspections = curseur.fetchone()[0]
-
-    connexion.close()
-
-    return render_template(
-        "index.html",
-        nb_inspections=nb_inspections
-    )
-
 
 @app.route("/inspection", methods=["GET", "POST"])
 def inspection():
