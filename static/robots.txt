@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://mvp-gestion-risques-hse.onrender.com/sitemap.xml
