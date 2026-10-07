@@ -1,8 +1,19 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, send_from_directory
 import sqlite3
 
 app = Flask(__name__)
 
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
+
+
+@app.route("/")
+def accueil():
+    return render_template("home.html")
+
+def accueil():
+    return render_template("home.html")
 @app.route("/")
 def accueil():
 
