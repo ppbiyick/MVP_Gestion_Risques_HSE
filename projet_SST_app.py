@@ -7,33 +7,7 @@ app.secret_key = "MVP_GESTION_RISQUES_SSE_2026"
 
 @app.route("/")
 def accueil():
-
-    if "user" not in session:
-        return redirect("/login")
-
-    connexion = sqlite3.connect("sst.db")
-    curseur = connexion.cursor()
-
-    curseur.execute("SELECT COUNT(*) FROM inspections")
-
-    nb_inspections = curseur.fetchone()[0]
-
-    curseur.execute("SELECT COUNT(*) FROM risques")
-
-    nb_risques = curseur.fetchone()[0]
-
-    curseur.execute("SELECT COUNT(*) FROM actions")
-    nb_actions = curseur.fetchone()[0]
-
-    connexion.close()
-
-    return render_template(
-    "index.html",
-    nb_inspections=nb_inspections,
-    nb_risques=nb_risques,
-    nb_actions=nb_actions
-)
-    
+    return render_template("home.html")
 
 
 @app.route("/inspection", methods=["GET", "POST"])
@@ -327,17 +301,41 @@ def login():
         if username == "admin" and password == "admin123":
 
             session["user"] = username
-
-            return redirect("/")
-
+            return redirect("/dashboard")
     return render_template("login.html")
 
 @app.route("/logout")
 def logout():
-
     session.clear()
 
     return redirect("/login") 
+
+@app.route("/dashboard")
+def dashboard():
+
+    if "user" not in session:
+        return redirect("/login")
+
+    connexion = sqlite3.connect("sst.db")
+    curseur = connexion.cursor()
+
+    curseur.execute("SELECT COUNT(*) FROM inspections")
+    nb_inspections = curseur.fetchone()[0]
+
+    curseur.execute("SELECT COUNT(*) FROM risques")
+    nb_risques = curseur.fetchone()[0]
+
+    curseur.execute("SELECT COUNT(*) FROM actions")
+    nb_actions = curseur.fetchone()[0]
+
+    connexion.close()
+
+    return render_template(
+        "index.html",
+        nb_inspections=nb_inspections,
+        nb_risques=nb_risques,
+        nb_actions=nb_actions
+    )
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
